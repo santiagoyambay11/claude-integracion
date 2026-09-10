@@ -1,0 +1,21 @@
+Carpeta TNS_ADMIN local
+=======================
+
+sqlcl.cmd apunta TNS_ADMIN aqui automaticamente en cuanto exista
+tnsnames.ora o sqlnet.ora en esta carpeta.
+
+Base on-premise
+---------------
+Copia aqui tu tnsnames.ora. Despues puedes conectarte con el alias:
+    tools\guardar-conexion.cmd MIBASE_DEV usuario MI_ALIAS_TNS
+
+Autonomous Database / wallet (Oracle Cloud)
+-------------------------------------------
+Descomprime el Wallet_XXXX.zip DIRECTAMENTE en esta carpeta
+(cwallet.sso, ewallet.p12, tnsnames.ora, sqlnet.ora, ojdbc.properties).
+Edita sqlnet.ora y deja:
+    WALLET_LOCATION = (SOURCE=(METHOD=file)(METHOD_DATA=(DIRECTORY="?/network/admin")))
+o bien la ruta absoluta de esta carpeta.
+
+Luego:
+    tools\guardar-conexion.cmd ADB_DEV admin mibase_high

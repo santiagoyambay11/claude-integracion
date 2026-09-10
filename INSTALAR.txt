@@ -1,0 +1,51 @@
+INSTALACION
+===========
+
+1. Descomprimir el zip como  C:\SQLcl
+   La ruta importa: los comandos y la documentacion asumen C:\SQLcl.
+
+2. Instalar el JDK 21 si no esta:
+       https://adoptium.net/temurin/releases/?version=21
+
+3. Copiar  config\env.cmd.ejemplo  como  config\env.cmd  y ajustar las
+   DOS lineas marcadas: la ruta del JDK y la carpeta de proyectos.
+
+4. Copiar  tns\tnsnames.ora.ejemplo  como  tns\tnsnames.ora  y poner los
+   datos reales de la base. Los pide quien administra la base.
+
+5. Agregar al PATH del usuario:
+       C:\SQLcl
+       C:\SQLcl\tools
+   (Win + R  ->  rundll32 sysdm.cpl,EditEnvironmentVariables)
+
+6. Cerrar y volver a abrir la terminal. Probar:
+       diagnostico
+
+7. Guardar la conexion propia. La contrasena queda cifrada contra el
+   usuario de Windows, no queda en ningun archivo:
+       guardar-conexion <NOMBRE> <USUARIO> <ALIAS_TNS>
+
+8. Dar de alta un proyecto:
+       nuevo-proyecto <EMPRESA>
+
+El resto esta en APEXlang-guia-implementacion.md
+
+
+ACTUALIZACIONES
+===============
+
+Esta carpeta es un repositorio git. Para traer los cambios:
+
+       cd C:\SQLcl
+       git pull
+
+No pisa nada propio: config\env.cmd, tns\tnsnames.ora, home\ y la
+distribucion de SQLcl estan fuera del control de versiones.
+
+
+QUE NO VIENE EN EL ZIP
+======================
+
+home\connections\   Las conexiones guardadas son personales y van
+                    cifradas contra el usuario de Windows. No sirven en
+                    otra maquina. Cada uno crea las suyas (paso 7).

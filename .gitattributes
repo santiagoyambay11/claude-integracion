@@ -1,0 +1,8 @@
+* text=auto eol=lf
+# Los .cmd tienen que quedar con CRLF: el goto de batch se rompe con LF.
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.txt text eol=crlf
+*.md  text eol=lf
+*.sql text eol=lf
+*.ora text eol=lf

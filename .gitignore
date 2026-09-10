@@ -1,0 +1,20 @@
+# Distribucion de Oracle SQLcl: 128 MB, se descarga de oracle.com.
+# Viene dentro del zip de instalacion, no en el repo.
+sqlcl/
+
+# Conexiones guardadas, historial y ajustes locales.
+# Las credenciales estan cifradas contra el usuario de Windows: no
+# sirven en otra maquina y no corresponde versionarlas.
+home/
+
+# Configuracion propia de cada maquina. Ver config/env.cmd.ejemplo
+config/env.cmd
+
+# Datos de conexion propios de cada empresa. Ver tns/tnsnames.ora.ejemplo
+tns/tnsnames.ora
+tns/sqlnet.ora
+tns/*.sso
+tns/*.p12
+tns/ojdbc.properties
+
+*.zip

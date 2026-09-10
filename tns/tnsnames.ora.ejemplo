@@ -1,0 +1,21 @@
+# =====================================================================
+#  Copiar este archivo como tnsnames.ora y poner los datos reales.
+#  sqlcl.cmd apunta TNS_ADMIN aqui automaticamente.
+#
+#  tnsnames.ora esta en .gitignore: los datos de cada base no se
+#  versionan. Si el repo es privado y prefieren compartirlos, sacar la
+#  linea tns/tnsnames.ora del .gitignore.
+# =====================================================================
+
+# ENABLE=BROKEN activa keepalive TCP. Sin eso, una llamada larga sin
+# trafico -como el import de la aplicacion completa- puede ser cortada
+# por un firewall o NAT intermedio, y llega como ORA-17008.
+MIBASE =
+  (DESCRIPTION =
+    (ENABLE = BROKEN)
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.0.0.1)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = mipdb)
+    )
+  )
