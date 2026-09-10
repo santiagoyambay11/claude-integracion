@@ -338,6 +338,28 @@ los ajenos, comparar dos exports sucesivos entre sí.
 El agente no importa sin aprobación, y el commit que se despliega tiene que estar
 en el remoto antes de importar.
 
+### Llevar una sola página
+
+El import de APEXlang es de aplicación completa, pero **sí se puede promover una
+página suelta** por el camino clásico, que convive con el anterior:
+
+```
+apex export-components -applicationid <APP_ID> -expcomponents "PAGE:<N>"
+```
+
+Sale un `.sql` instalable con el import clásico, fijando el workspace destino.
+
+Dos límites que hay que tener presentes:
+
+- **La página sola no lleva componentes compartidos**: listas de valores,
+  esquemas de autorización, items de la página 0, procesos de aplicación. Si el
+  cambio toca alguno, ese componente va aparte o la página no funciona en
+  destino.
+- **El cambio tiene que existir en un APEX**, no solo en los `.apx`. El flujo
+  natural es una aplicación de desarrollo: el agente edita la fuente, se importa
+  entera **ahí** —que no es producción y no tiene riesgo—, se prueba, y a
+  producción va solo la página.
+
 ### Validar
 
 `apex validate` sobre una aplicación grande tarda **más de quince minutos**: no
